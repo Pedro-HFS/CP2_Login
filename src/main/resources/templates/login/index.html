@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<header th:replace="~{cabecalho :: head('login')}"> </header>
+<body>
+	<nav th:replace="~{menu}"></nav>
+	<div class="container mt-3">
+		<h3>Login Usuários</h3>
+		<table class="table table-bordered table-sm">
+			<thead>
+				<tr>
+					<th>Username</th>
+					<th>Password</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="login : ${listaLogin}">
+					<td th:text="${login.getUsername()}"></td>
+					<td th:text="${login.getPassword()}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="row">
+			<a type="button" class="btn btn-secondary" href='/login/criar'>Criar Login</a>
+		</div>
+	</div>
+</body>
+</html>

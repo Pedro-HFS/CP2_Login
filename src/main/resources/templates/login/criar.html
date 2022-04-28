@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<header th:replace="~{cabecalho :: head('Criar login')}"> </header>
+<body>
+	<nav th:replace="~{menu}"></nav>
+	<div class="container mt-3">
+		<h3>Criar login</h3>
+		<form th:object="${loginDto}" action="/login" method="POST">
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Username</span> <input
+							type="text" th:field="*{username}" th:errorclass="is-invalid"
+							class="form-control">
+						<div class="invalid-feedback" th:errors="*{username}"></div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group mb-3 input-group-sm">
+						<span class="input-group-text">Password</span> <input type="password"
+							th:field="*{password}" class="form-control">
+					</div>
+				</div>
+			</div>
+			<button class="btn btn-secondary" type="submit">Let me in.</button>
+		</form>
+	</div>
+</body>
+</html>
